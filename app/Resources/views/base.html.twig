@@ -2,12 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta charset="utf-8">
+	    <meta http-equiv="cleartype" content="on">
+	    <meta name="MobileOptimized" content="320">
+	    <meta name="HandheldFriendly" content="True">
+	    <meta name="apple-mobile-web-app-capable" content="yes">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+        	<link href="{{ asset('css/main.css') }}" rel="stylesheet" />
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+   		{{ include('default/menu.html.twig') }}
+   		<main id="panel" class="">
+   			<button class="toggle-button">&#9776;</button>
+		  	{% block body %}{% endblock %}
+		</main>
+        {% block javascripts %}
+        	<script src="{{ asset('js/jquery.min.js') }}"></script>
+        	<script src="{{ asset('js/slideout.min.js') }}"></script>
+        	<script src="{{ asset('js/main.js') }}"></script>
+        {% endblock %}
     </body>
 </html>
