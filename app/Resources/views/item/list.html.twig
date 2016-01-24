@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<h1>Items</h1>
+	<ul>
+    {% for item in items %}
+	    <li>{{ item.name }} ({{ item.unit }}) - {{ item.price }}</li>
+	{% endfor %}
+	</ul>
+{% endblock %}
